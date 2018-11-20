@@ -5,7 +5,7 @@
  */
 package galeriaarte;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 
 /**
  *
@@ -44,7 +44,20 @@ public class GaleriaArte {
         coleccion[3] = new Obra ("Venus y Adonis", "Tiziano", 1554, 475.38f);
         coleccion[4] = new Obra ("Niños en la playa", "Sorolla", 1910, 745.21f);
             
+        //Creo un mecenas
+        Mecenas m01 = new Mecenas();
+            m01.nombre = "Ariadna";
+            m01.anyo_nacimiento = 1996;
+            m01.telefono = 697560597;
             
+        //Cambio el numero de teléfono del mecenas
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Cuál es el nuevo teléfono del mecenas?");
+        int nuevo_telefono = teclado.nextInt();
+        m01.cambia_telefono(nuevo_telefono);
+        
+        //Calculo la edad del mecenas
+        System.out.println(m01.calcula_edad(m01.anyo_nacimiento));
     }
     
 }
