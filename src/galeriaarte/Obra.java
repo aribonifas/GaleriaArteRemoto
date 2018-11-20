@@ -16,6 +16,14 @@ public class Obra {
     int anyo;
     Float precio;
     
+    //Para hacerlo más ágil a la hora de crear una Obra
+    public Obra (String tit, String aut, int an, Float pre){
+       titulo = tit;
+       autor = aut;
+       anyo = an;
+       precio = pre;
+    }
+    
     //Creo un método para calcular el valor de las obras según la fama de su autor.
     //Pudiendo ser de fama A (el precio aumenaría) o fama B (el precio se mantiene)
     float calcula_valor (String fama_autor){
