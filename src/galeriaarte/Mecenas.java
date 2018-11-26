@@ -15,15 +15,20 @@ public class Mecenas {
     int anyo_nacimiento;
     int telefono;
     
+public Mecenas (String nom, int aNacimiento, int telf){
+    nombre = nom;
+    anyo_nacimiento = aNacimiento;
+    telefono = telf;
+    }
+
     //Creo un método para cambiar el teléfono
     void cambia_telefono (int nuevo_telefono){
         telefono = nuevo_telefono;
         }
     
     //Creo un método para calcular la edad de un mecenas
-    int calcula_edad (int edad_mecenas){
-       edad_mecenas = 2018 - anyo_nacimiento;
-        return edad_mecenas;
+    int calcula_edad (int anyoActual){
+        return anyoActual - anyo_nacimiento;
         }
         
     
