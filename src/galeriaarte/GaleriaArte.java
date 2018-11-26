@@ -24,6 +24,32 @@ public class GaleriaArte {
         String author;
         int year;
         float prize;
+        String tek;
+        String mater;
+        Float pe;
+        
+         //Creación de una colección con vectores
+        Obra[] coleccion;
+        
+        coleccion = new Obra[80];
+        coleccion[0] = new Obra ("El jardín de las delicias", "El Bosco", 1515, 789.23f);
+        coleccion[1] = new Obra ("La maja desnuda", "Goya", 1800, 954.00f);
+        coleccion[2] = new Obra ("Las tres gracias", "Rubens", 1635, 457.47f);
+        coleccion[3] = new Obra ("Venus y Adonis", "Tiziano", 1554, 475.38f);
+        coleccion[4] = new Obra ("Niños en la playa", "Sorolla", 1910, 745.21f);
+        numObras = 5;
+        
+         //creo un ArrayList de mecenas
+        ArrayList<Mecenas> listaMecenas = new ArrayList<Mecenas>();
+        listaMecenas.add(new Mecenas ("Ariadna Bonifás", 1996, 610570593));
+        listaMecenas.add(new Mecenas ("Marta Roig", 1976, 665573689));
+        listaMecenas.add(new Mecenas ("Nerea Sospedra", 2004, 612345678));
+        listaMecenas.add(new Mecenas ("Vicenta Montull", 1942, 687654321));
+        listaMecenas.add(new Mecenas ("Lidia Roig", 1972, 612345789));
+        
+        //creo una nueva obra de la clase pintura y la añado a la colección(compruebo que he creado bien la clase Pintura)
+        coleccion[numObras] = new Pintura ("Saturno devorando a su hijo", "Goya", 1823, 742.35f, "Oleo");
+        numObras++;
         
        /* Lo comento para crear una colección y no me moleste lo creado anteriormente
         // Creo una obra
@@ -42,16 +68,7 @@ public class GaleriaArte {
         String nuevo_titulo = teclado.nextLine();
         o01.cambia_titulo(nuevo_titulo);
     */
-        //Creación de una colección con vectores
-        Obra[] coleccion;
-        
-        coleccion = new Obra[20];
-        coleccion[0] = new Obra ("El jardín de las delicias", "El Bosco", 1515, 789.23f);
-        coleccion[1] = new Obra ("La maja desnuda", "Goya", 1800, 954.00f);
-        coleccion[2] = new Obra ("Las tres gracias", "Rubens", 1635, 457.47f);
-        coleccion[3] = new Obra ("Venus y Adonis", "Tiziano", 1554, 475.38f);
-        coleccion[4] = new Obra ("Niños en la playa", "Sorolla", 1910, 745.21f);
-        numObras = 5;
+       
         /*
         //Prueba para ver el título de la obra [2] de la coleccion
         System.out.println(coleccion[2].titulo);
@@ -71,14 +88,7 @@ public class GaleriaArte {
         //Calculo la edad del mecenas
         System.out.println(m01.calcula_edad(m01.anyo_nacimiento)); */
         
-        //creo un ArrayList de mecenas
-        ArrayList<Mecenas> listaMecenas = new ArrayList<Mecenas>();
-        listaMecenas.add(new Mecenas ("Ariadna Bonifás", 1996, 610570593));
-        listaMecenas.add(new Mecenas ("Marta Roig", 1976, 665573689));
-        listaMecenas.add(new Mecenas ("Nerea Sospedra", 2004, 612345678));
-        listaMecenas.add(new Mecenas ("Vicenta Montull", 1942, 687654321));
-        listaMecenas.add(new Mecenas ("Lidia Roig", 1972, 612345789));
-        
+              
         /*listaMecenas.add("Ariadna Bonifas");
         listaMecenas.add("Lara Carreño");
         listaMecenas.add("Begoña Cerda");
@@ -86,7 +96,6 @@ public class GaleriaArte {
         listaMecenas.add("Naldo Bonifas");*/
         
         //Creación del menú
-        
         int opcion = 0;
         while (opcion != 5){
         Scanner teclado = new Scanner(System.in);
@@ -100,20 +109,50 @@ public class GaleriaArte {
                 switch (opcion){
             case 1:
                 opcion = 1;
-                
-                System.out.println("Introduzca título ");
-                tittle = teclado.next();
-                System.out.println("Introduzca autor ");
-                author = teclado.next();
-                System.out.println("Introduzca año ");
-                year = teclado.nextInt();
-                System.out.println("Introduzca precio ");
-                prize = teclado.nextFloat();
-                
-                
-                coleccion[numObras] = new Obra (tittle, author, year, prize);
-                numObras ++;
-                                
+                System.out.println("Menú");
+                System.out.println("Pulse 11 para introducir una pintura");
+                System.out.println("Pulse 12 para introducir una escultura");
+                opcion = teclado.nextInt();
+                    switch (opcion){
+                        case 1:
+                            opcion = 11;
+                            System.out.println("Introduzca título ");
+                            tittle = teclado.next();
+                            System.out.println("Introduzca autor ");
+                            author = teclado.next();
+                            System.out.println("Introduzca año ");
+                            year = teclado.nextInt();
+                            System.out.println("Introduzca precio ");
+                            prize = teclado.nextFloat();
+                            System.out.println("Introduzca técnica ");
+                            tek = teclado.next();
+
+                            coleccion[numObras] = new Pintura (tittle, author, year, prize, tek);
+                            numObras ++;
+
+                            break;
+
+                        case 2:
+                            opcion = 12;
+                            System.out.println("Introduzca título ");
+                            tittle = teclado.next();
+                            System.out.println("Introduzca autor ");
+                            author = teclado.next();
+                            System.out.println("Introduzca año ");
+                            year = teclado.nextInt();
+                            System.out.println("Introduzca precio ");
+                            prize = teclado.nextFloat();
+                            System.out.println("Introduzca material ");
+                            mater = teclado.next();
+                            System.out.println("Introduzca peso ");
+                            pe = teclado.nextFloat();
+
+                            coleccion[numObras] = new Escultura (tittle, author, year, prize, mater, pe);
+                            numObras ++;
+
+                            break;
+                        }
+                                                
                 break;
                 
             case 2:
